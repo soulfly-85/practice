@@ -1,5 +1,5 @@
 Practice::Application.routes.draw do
-  get "users/new"
+  resources :users
   match '/signup',  to: 'users#new',            via: 'get'
   match '/help',    to: 'static_page#help',    via: 'get'
   match '/about',   to: 'static_page#about',   via: 'get'
