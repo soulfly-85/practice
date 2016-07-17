@@ -1,10 +1,17 @@
 Practice::Application.routes.draw do
+  get "relationships/create"
+  get "relationships/destroy"
   get "microposts/index"
-  get "microposts/create"
-  get "microposts/destroy"
-  resources :users
+  #get "microposts/create"
+  #get "microposts/destroy"
+  resources :users do 
+	member do
+      get :following, :followers
+    end
+  end
   resources :sessions, only: [:new, :create, :destroy]
   resources :microposts, only: [:create, :destroy]
+  resources :relationships, only: [:create, :destroy]
   
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
