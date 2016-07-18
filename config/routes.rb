@@ -17,10 +17,12 @@ Practice::Application.routes.draw do
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
   
+  match	'/home',	to:	'static_page#home',	   via: 'get'
   match '/help',    to: 'static_page#help',    via: 'get'
   match '/about',   to: 'static_page#about',   via: 'get'
   match '/contact', to: 'static_page#contact', via: 'get'
   
+  #get 'static_page/home'
   root 'static_page#home'
 
   # Example of regular route:
