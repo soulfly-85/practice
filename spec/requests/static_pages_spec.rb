@@ -22,6 +22,7 @@ describe "Static pages" do
   
   describe "About page" do
 	before { visit about_path }
+	
     it { should have_content 'About Us' } 
 	
 	it { should have_title 'About Us' }
